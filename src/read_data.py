@@ -2,8 +2,9 @@ import json
 import os
 from json import JSONDecodeError
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
+
 
 def read_json(path: str) -> list[dict]:
     """Считывает json файл"""
@@ -12,8 +13,9 @@ def read_json(path: str) -> list[dict]:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         return data
-    except (FileNotFoundError, JSONDecodeError):
+    except FileNotFoundError, JSONDecodeError:
         return []
+
 
 def create_objective_json(data: list[dict]) -> list:
     """Создает объекты из json файла"""
@@ -25,4 +27,3 @@ def create_objective_json(data: list[dict]) -> list:
         category["products"] = products
         categories.append(Category(**category))
     return categories
-
