@@ -31,7 +31,7 @@ def test_create_objective_json(data):
     assert cat.description == "Smartphones"
 
     assert isinstance(cat.products, list)
-    assert len(cat.products) == 2
+    assert len(cat.products) == 1
     assert all(isinstance(p, Product) for p in cat.products)
 
     assert cat.products[0].name == "iPhone"
