@@ -15,3 +15,12 @@ class Category:
 
     def add_product(self, product):
         self.__products.append(product)
+
+    @property
+    def products(self):
+        res = ""
+        for product in self.__products:
+            res += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
+        return res
+
+
