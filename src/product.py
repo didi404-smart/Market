@@ -31,6 +31,7 @@ class Product:
     def price(self, new_price):
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
+            return
         if new_price < self.__price:
             ans = input(f"Вы хотите понизить цену с {self.__price} до {new_price}?(y/n)\n")
             if ans != "y":
