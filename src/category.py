@@ -1,3 +1,5 @@
+from src.product import Product
+
 class Category:
     name: str
     description: str
@@ -13,14 +15,21 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-    def add_product(self, product):
+    def add_product(self, product: Product):
+        """Добавляет продукт в категорию"""
         self.__products.append(product)
+        Category.product_count += 1
 
     @property
     def products(self):
+        """Возвразает строку с описанием продуктов в категории"""
         res = ""
         for product in self.__products:
             res += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
         return res
 
+    @property
+    def products_list(self):
+        """Список объектов для поиска дубликатов в Product.new_product."""
+        return self.__products
 
