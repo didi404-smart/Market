@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -25,11 +26,10 @@ class Category:
         """Возвразает строку с описанием продуктов в категории"""
         res = ""
         for product in self.__products:
-            res += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
+            res += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return res
 
     @property
     def products_list(self):
         """Список объектов для поиска дубликатов в Product.new_product."""
         return self.__products
-

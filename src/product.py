@@ -11,7 +11,7 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, product:dict, products: list = None):
+    def new_product(cls, product: dict, products: list = None):
         """Создаёт товар из словаря. Если в списке products уже есть товар
         с таким же названием, складывает количество и выбирает большую цену"""
         new_item = cls(**product)
