@@ -30,10 +30,10 @@ def test_create_objective_json(data):
     assert cat.name == "Phones"
     assert cat.description == "Smartphones"
 
-    assert isinstance(cat.products, list)
-    assert len(cat.products) == 1
-    assert all(isinstance(p, Product) for p in cat.products)
+    assert isinstance(cat.products_list, list)
+    assert len(cat.products_list) == 1
+    assert all(isinstance(p, Product) for p in cat.products_list)
 
-    assert cat.products[0].name == "iPhone"
-    assert cat.products[0].price == 1000.0
-    assert cat.products[0].quantity == 3
+    assert cat.products_list[0].name == "iPhone"
+    assert cat.products_list[0].price == 1000.0
+    assert cat.products_list[0].quantity == 3

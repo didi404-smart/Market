@@ -28,3 +28,24 @@ def data():
             "products": [{"name": "iPhone", "description": "Apple phone", "price": 1000.0, "quantity": 3}],
         }
     ]
+
+
+@pytest.fixture
+def dict_product():
+    return {
+        "name": "Samsung",
+        "description": "256GB",
+        "price": 180000.0,
+        "quantity": 5,
+    }
+
+
+@pytest.fixture
+def product(dict_product):
+    return Product(**dict_product)
+
+
+@pytest.fixture(autouse=True)
+def reset_counters(monkeypatch):
+    monkeypatch.setattr(Category, "category_count", 0)
+    monkeypatch.setattr(Category, "product_count", 0)
