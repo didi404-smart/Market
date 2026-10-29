@@ -33,5 +33,5 @@ def test_category_empty_products():
     assert cat.products == ""
 
 
-def test_str(category1):
-    assert str(category1) == f"Молочная продукция, количество продуктов: 2 шт."
+def test_str(product_iter):
+    assert str(product_iter) == f"Молочная продукция, количество продуктов: 13 шт."
