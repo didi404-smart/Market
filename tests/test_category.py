@@ -31,3 +31,7 @@ def test_category_empty_products():
     cat = Category("Пусто", "Нет товаров", [])
 
     assert cat.products == ""
+
+
+def test_str(category1):
+    assert str(category1) == f"Молочная продукция, количество продуктов: 2 шт."
