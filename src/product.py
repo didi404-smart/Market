@@ -10,6 +10,9 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.\n'
+
     @classmethod
     def new_product(cls, product: dict, products: list = None):
         """Создаёт товар из словаря. Если в списке products уже есть товар
