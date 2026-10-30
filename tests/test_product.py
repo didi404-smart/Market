@@ -59,3 +59,11 @@ def test_price_setter_decrease_declined(product, monkeypatch):
     product.price = 150000.0
 
     assert product.price == 180000.0
+
+
+def test_str(product1):
+    assert str(product1) == f"Молоко, 69.6 руб. Остаток: 10 шт.\n"
+
+
+def test_add(product1, product2):
+    assert product1 + product2 == 2730
