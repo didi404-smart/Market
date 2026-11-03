@@ -15,7 +15,7 @@ class Product:
 
     def __add__(self, other):
         """Добавляет продукт в категорию"""
-        if type(self) == type(other):
+        if type(self) is type(other):
             return (self.__price * self.quantity) + (other.__price * other.quantity)
         raise TypeError
 

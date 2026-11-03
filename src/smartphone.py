@@ -2,7 +2,7 @@ from src.product import Product
 
 
 class Smartphone(Product):
-    efficiency: int
+    efficiency: float
     model: str
     memory: int
     color: str
@@ -13,4 +13,3 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
-
