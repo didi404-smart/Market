@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 class BaseProduct(ABC):
+    """Родитель Product"""
 
     @classmethod
     @abstractmethod

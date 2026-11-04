@@ -1,5 +1,3 @@
-import pytest
-from src.base_product import BaseProduct
 from src.product import Product
 
 

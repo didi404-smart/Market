@@ -1,8 +1,9 @@
 from src.product import Product
+from src.base_category import BaseCategory
 
-
-class Order:
-
+class Order(BaseCategory):
+    name: str
+    description: str
     product: Product
     quantity: int
 
@@ -11,7 +12,8 @@ class Order:
             raise TypeError("В заказе должен быть объект Product или его наследник")
         if quantity < 0:
             raise ValueError("Количество должно быть положительным")
-
+        self.name = product.name
+        self.description = product.description
         self.product = product
         self.quantity = quantity
         self.__total_cost = quantity * product.price

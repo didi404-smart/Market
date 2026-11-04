@@ -1,7 +1,7 @@
 from src.product import Product
+from src.base_category import BaseCategory
 
-
-class Category:
+class Category(BaseCategory):
     name: str
     description: str
     __products: list
@@ -41,3 +41,8 @@ class Category:
     def products_list(self):
         """Список объектов для поиска дубликатов в Product.new_product."""
         return self.__products
+
+    @property
+    def total_cost(self):
+        """Стоимость всех товаров категории с учётом остатков"""
+        return sum(p.price * p.quantity for p in self.__products)
