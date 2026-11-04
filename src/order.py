@@ -19,7 +19,7 @@ class Order(BaseCategory):
         self.__total_cost = quantity * product.price
 
     def __str__(self):
-        return f"{self.name}, количество: {self.quantity} шт., итого: {self.total_cost} руб."
+        return f"Заказ: {self.name}, количество: {self.quantity} шт., итого: {self.total_cost} руб."
 
     @property
     def total_cost(self):

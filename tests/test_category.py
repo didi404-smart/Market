@@ -42,3 +42,6 @@ def test_str(product_iter):
 def test_add_product(category1):
     with pytest.raises(TypeError):
         category1.add_product("no product")
+
+def test_total_cost(product_iter):
+    assert product_iter.total_cost == 2730.0
