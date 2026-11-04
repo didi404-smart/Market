@@ -1,4 +1,7 @@
-class Product:
+from src.base_product import BaseProduct
+
+
+class Product(BaseProduct):
     name: str
     description: str
     __price: float
@@ -14,7 +17,7 @@ class Product:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.\n"
 
     def __add__(self, other):
-        """Добавляет продукт в категорию"""
+        """Складывает цену двух продуктов(с учетом кол-ва на складе)"""
         if type(self) is type(other):
             return (self.__price * self.quantity) + (other.__price * other.quantity)
         raise TypeError
