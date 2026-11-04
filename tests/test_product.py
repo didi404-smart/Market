@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -67,3 +69,11 @@ def test_str(product1):
 
 def test_add(product1, product2):
     assert product1 + product2 == 2730
+
+
+def test_add_smartphone(smartphone1, smartphone2):
+    res = smartphone2 + smartphone1
+    assert res == 2580000.0
+
+    with pytest.raises(TypeError):
+        smartphone1 + 0
