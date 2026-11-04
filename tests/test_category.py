@@ -36,12 +36,13 @@ def test_category_empty_products():
 
 
 def test_str(product_iter):
-    assert str(product_iter) == f"Молочная продукция, количество продуктов: 13 шт."
+    assert str(product_iter) == "Молочная продукция, количество продуктов: 13 шт."
 
 
 def test_add_product(category1):
     with pytest.raises(TypeError):
         category1.add_product("no product")
+
 
 def test_total_cost(product_iter):
     assert product_iter.total_cost == 2730.0

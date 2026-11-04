@@ -1,5 +1,6 @@
-from src.product import Product
 from src.base_category import BaseCategory
+from src.product import Product
+
 
 class Order(BaseCategory):
     name: str
@@ -23,4 +24,5 @@ class Order(BaseCategory):
 
     @property
     def total_cost(self):
+        """Возвращает стоимость заказа"""
         return self.__total_cost
