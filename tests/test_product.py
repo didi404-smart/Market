@@ -77,3 +77,8 @@ def test_add_smartphone(smartphone1, smartphone2):
 
     with pytest.raises(TypeError):
         smartphone1 + 0
+
+
+def test_zero_quantity_raise():
+    with pytest.raises(ValueError):
+        Product("Cake", "Chocolate", 500, 0)

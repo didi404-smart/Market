@@ -1,3 +1,5 @@
+from unittest.mock import MagicMock
+
 import pytest
 
 from src.category import Category
@@ -82,3 +84,13 @@ def smartphone2():
 @pytest.fixture
 def lawn_grass1():
     return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
+
+@pytest.fixture
+def fake_product():
+    fake = MagicMock(spec=Product)
+    fake.name = "A"
+    fake.description = "a"
+    fake.price = 10.0
+    fake.quantity = 5
+    return fake
