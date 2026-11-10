@@ -39,3 +39,9 @@ line_length = 119
 
 [tool.poetry]
 package-mode = false
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "@abstractmethod",
+]

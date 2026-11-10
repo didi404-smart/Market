@@ -1,0 +1,68 @@
+from unittest.mock import MagicMock
+
+import pytest
+
+from src.category import Category
+from src.my_exception import ZeroQuantity
+from src.product import Product
+
+
+def test_class_category(category1, category2):
+    assert category1.name == "Молочная продукция"
+    assert category1.description == "Йогурты, молоко, творог"
+    assert category1.products_list == ["Молоко 2.5%", "Творог 9%"]
+
+    assert category2.category_count == 2
+    assert category1.product_count == 5
+
+
+def test_category_add_product(product, dict_product):
+    cat = Category("Смартфоны", "Описание", [product])
+    second = Product(**(dict_product | {"name": "iPhone"}))
+
+    cat.add_product(second)
+
+    assert "iPhone" in cat.products
+    assert Category.product_count == 2
+
+
+def test_category_products_getter(product):
+    cat = Category("Смартфоны", "Описание", [product])
+
+    assert cat.products == "Samsung, 180000.0 руб. Остаток: 5 шт.\n"
+
+
+def test_category_empty_products():
+    cat = Category("Пусто", "Нет товаров", [])
+
+    assert cat.products == ""
+
+
+def test_str(product_iter):
+    assert str(product_iter) == "Молочная продукция, количество продуктов: 13 шт."
+
+
+def test_add_product(category1):
+    with pytest.raises(TypeError):
+        category1.add_product("no product")
+
+
+def test_total_cost(product_iter):
+    assert product_iter.total_cost == 2730.0
+
+
+def test_average_price(product_iter):
+    assert product_iter.average_price() == 373.8
+
+
+def test_average_price_raise():
+    cat1 = Category("Juice", "...", [])
+    assert cat1.average_price() == 0.0
+
+
+def test_add_product_zero_quantity_mock(capsys):
+    cat = Category("К", "О", [])
+    fake = MagicMock(spec=Product)
+    fake.quantity = 0
+    cat.add_product(fake)
+    assert "нулевым количеством" in capsys.readouterr().out
