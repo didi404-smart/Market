@@ -1,4 +1,5 @@
 from src.base_category import BaseCategory
+from src.my_exception import ZeroQuantity
 from src.product import Product
 
 
@@ -25,10 +26,19 @@ class Category(BaseCategory):
 
     def add_product(self, product: Product):
         """Добавляет продукт в категорию"""
-        if not isinstance(product, Product):
-            raise TypeError
-        self.__products.append(product)
-        Category.product_count += 1
+        try:
+            if not isinstance(product, Product):
+                raise TypeError
+            if product.quantity <= 0:
+                raise ZeroQuantity
+        except ZeroQuantity as e:
+            print(e)
+        else:
+            self.__products.append(product)
+            Category.product_count += 1
+            print("Товар добавлен в заказ")
+        finally:
+            print("Обработка добавления товара завершена")
 
     @property
     def products(self):
