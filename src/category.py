@@ -47,3 +47,11 @@ class Category(BaseCategory):
     def total_cost(self):
         """Стоимость всех товаров категории с учётом остатков"""
         return sum(p.price * p.quantity for p in self.__products)
+
+    def average_price(self):
+        """подсчитывает средний ценник всех товаров в категории"""
+        try:
+            total = sum(product.price for product in self.__products)
+            return total / len(self.__products)
+        except ZeroDivisionError:
+            return 0.0

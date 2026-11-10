@@ -46,3 +46,10 @@ def test_add_product(category1):
 
 def test_total_cost(product_iter):
     assert product_iter.total_cost == 2730.0
+
+def test_average_price(product_iter):
+    assert product_iter.average_price() == 373.8
+
+def test_average_price_raise():
+    cat1 = Category("Juice", "...", [])
+    assert cat1.average_price() == 0.0
