@@ -36,7 +36,7 @@ class Category(BaseCategory):
         else:
             self.__products.append(product)
             Category.product_count += 1
-            print("Товар добавлен в заказ")
+            print("Товар добавлен")
         finally:
             print("Обработка добавления товара завершена")
 
